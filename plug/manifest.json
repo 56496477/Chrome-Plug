@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name"            : "Cocon",
+    "version"         : "1.5.6",
+    "author"          : "NiuFang",
+    "content_security_policy": "script-src 'self' https://*.bootcss.com 'unsafe-eval'; object-src 'self'",
+    "chrome_url_overrides": {
+        "newtab": "main.html"
+    },
+    "icons": {
+        "16" : "assets/images/icon.png",
+        "48" : "assets/images/icon.png",
+        "128": "assets/images/icon.png"
+    },
+    "browser_action": {
+		"default_icon": "assets/images/icon.png",
+		"default_title": "这是一个示例Chrome插件"
+    },
+    "background": {
+		"scripts": ["assets/js/background.js"]
+	},
+    "permissions": [
+        "tabs",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ]
+}
