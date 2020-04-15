@@ -8,7 +8,7 @@ export class AppController {
 
   @Get()
   async getRandomImg(@Res() res): Promise<any> {
-    const path = '/Users/niufang/tms_projects/tms-cdn/cdn-web/files/aaaccc/1.0.0/';
+    const path = '/root/tms-cdn/cdn-web/files/chrome-plug/all/';
     const allFiles = await readdirSync(path);
     const files = [];
     allFiles.map(item => {
