@@ -45,7 +45,7 @@
         .ipt {
             width: 100px;
             height: 35px;
-            border: 1px solid #666;
+            border: 1px solid #ccc;
             border-radius: 5px;
             position: absolute;
             top: 20px;
@@ -58,7 +58,7 @@
         }
 
         .ipt:focus {
-            border: 1px solid #666;
+            border: 1px solid #eee;
             width: 160px;
         }
 
@@ -66,29 +66,33 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #666;
-            font-size: 15px;
-            line-height: 31px;
+            color: #eee;
+            font-size: 12px;
+            line-height: 24px;
             text-align: right;
 
         }
 
         .every-title {
-            font-size: 18px;
+            font-size: 15px;
         }
 
         .every-title span {
-            color: #d1cdcd;
+            color: #eee;
         }
 
         input:focus {
             outline: none;
         }
+
+        input::-webkit-input-placeholder{
+            color:#ccc;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <input type="text" class="ipt" id="ipt" placeholder="Google搜索..."/>
         <div class="center">
             <div class="time" id="time">10:10</div>

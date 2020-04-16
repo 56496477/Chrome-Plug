@@ -14,10 +14,13 @@ function setCurrentTime() {
 }
 
 function setBackground() {
-    fetch('http://cdn.cocon.live:8008/api/getRandomImg')
+    fetch('http://cdn.cocon.live:8008/api/getRandomImg').then((response) => response.json())
     .then((data) => {
-        console.log(data);
-    });
+        console.log(data.data);
+        document.getElementById("container").style.backgroundImage = `url(${data.data})`;
+    }).catch(() => {
+        document.getElementById("container").style.backgroundImage = `url(/images/default_background.jpg)`;
+    })
 }
 
 function setWeatherDom(data) {
