@@ -1,3 +1,12 @@
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        document.body.style.display = "block";
+    } else {
+        document.body.style.display = "none";
+    };
+};
+
+
 function setCurrentTime() {
     document.getElementById("time").innerHTML = moment().format(
         "YYYY年MM月D日 星期dd"
