@@ -17,7 +17,9 @@ export class AppController {
         files.push(item);
       }
     });
-    return `${path}${files[Math.floor((Math.random() * files.length))]}`;
+    return {
+      data: `${path}${files[Math.floor((Math.random() * files.length))]}`;
+    };
     // return res.sendFile(`${path}${files[Math.floor((Math.random() * files.length))]}`);
   }
 

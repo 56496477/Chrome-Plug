@@ -13,6 +13,13 @@ function setCurrentTime() {
     );
 }
 
+function setBackground() {
+    fetch('http://cdn.cocon.live:8008/api/getRandomImg')
+    .then((data) => {
+        console.log(data);
+    });
+}
+
 function setWeatherDom(data) {
     document.getElementById("city").innerHTML = data.city;
     const ds = (data && data.data.slice(0, 3)) || [];
@@ -49,6 +56,7 @@ function init() {
         fetchWeather();
     }
     setCurrentTime();
+    setBackground();
 }
 
 function onSearch(e) {
