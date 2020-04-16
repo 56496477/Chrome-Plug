@@ -9,7 +9,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/getRandomImg')
-  async getRandomImg(@Res() res): Promise<any> {
+  async getRandomImg(): Promise<any> {
     const allFiles = await readdirSync(path);
     const files = [];
     allFiles.map(item => {
