@@ -18,7 +18,7 @@ export class AppController {
       }
     });
     return {
-      data: `${path}${files[Math.floor((Math.random() * files.length))]}`
+      data: `http://cdn.cocon.live:8008/api/img/${files[Math.floor((Math.random() * files.length))]}`,
     };
     // return res.sendFile(`${path}${files[Math.floor((Math.random() * files.length))]}`);
   }
