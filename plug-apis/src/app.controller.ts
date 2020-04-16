@@ -22,7 +22,7 @@ export class AppController {
   }
 
   @Get('/img/:filename')
-  async getRandomImg(@Param('filename') filename, @Res() res): Promise<any> {
+  async getImg(@Param('filename') filename, @Res() res): Promise<any> {
     return res.sendFile(`${path}${filename}`);
   }
 }
