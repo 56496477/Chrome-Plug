@@ -24,13 +24,29 @@ function setBackground() {
 }
 
 function setWeatherDom(data) {
-    document.getElementById("city").innerHTML = data.city;
+    // document.getElementById("city").innerHTML = data.city;
+    const tq = {
+        'xue': 'xue.png',
+        'lei': 'lei.png',
+        'shachen': 'shachen.png',
+        'wu': 'wu.png',
+        'bingbao': 'bingbao.png',
+        'yun': 'yun.png',
+        'yu': 'yu.png',
+        'yin': 'yin.png',
+        'qing': 'qing.png',
+    }
     const ds = (data && data.data.slice(0, 3)) || [];
     let dom = "";
     ds.map((item) => {
         dom =
             dom +
-            `<div class="every-item">${item.day} ${item.wea} ${item.tem2} ~ ${item.tem1}</div>`;
+            `<div class="every-item">
+                <img src="assets/images/${tq[item.wea_img]}">
+                <div className="da1">${item.day}</div>
+                <div className="da2">${item.wea}</div>
+                <div className="da3">${item.tem2} ~ ${item.tem1} </div>
+            </div>`;
     });
     document.getElementById("every-container").innerHTML = dom;
 }

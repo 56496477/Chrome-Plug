@@ -68,10 +68,18 @@
             top: 20px;
             right: 20px;
             color: #eee;
-            font-size: 15px;
+            font-size: 13px;
             line-height: 24px;
             text-align: right;
             filter: drop-shadow(2px 4px 6px black);
+        }
+
+        .every-item {
+            display: flex;
+            width: 88px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .every-title {
@@ -81,6 +89,17 @@
 
         .every-title span {
             color: #eee;
+        }
+
+        .every-item img {
+            width: 35px;
+            height: 35px;
+        }
+
+        #every-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         input:focus {
@@ -101,9 +120,8 @@
             <div class="time" id="time">10:10</div>
         </div>
         <div class="every">
-            <div class="every-title">未来三天 <span id="city">上海</span> 天气情况:</div>
             <div id="every-container">
-                <div class="every-item">20日 晴朗 10℃" ~ 20℃</div>
+                <div class="every-item">20日 晴朗 10℃" ~ 20℃ </div>
                 <div class="every-item">21日 晴朗 10℃" ~ 20℃</div>
                 <div class="every-item">22日 晴朗 10℃" ~ 20℃</div>
             </div>
