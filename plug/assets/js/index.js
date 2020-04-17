@@ -3,9 +3,58 @@ document.onreadystatechange = function () {
         document.body.style.display = "block";
     } else {
         document.body.style.display = "none";
-    };
+    }
 };
 
+const makeItRain = function () {
+    $(".rain").empty();
+    var increment = 0;
+    var drops = "";
+    var backDrops = "";
+    while (increment < 100) {
+        var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
+        var randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+        increment += randoFiver;
+        drops +=
+            '<div class="drop" style="left: ' +
+            increment +
+            "%; bottom: " +
+            (randoFiver + randoFiver - 1 + 100) +
+            "%; animation-delay: 0." +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"><div class="stem" style="animation-delay: 0.' +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"></div><div class="splat" style="animation-delay: 0.' +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"></div></div>';
+        backDrops +=
+            '<div class="drop" style="right: ' +
+            increment +
+            "%; bottom: " +
+            (randoFiver + randoFiver - 1 + 100) +
+            "%; animation-delay: 0." +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"><div class="stem" style="animation-delay: 0.' +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"></div><div class="splat" style="animation-delay: 0.' +
+            randoHundo +
+            "s; animation-duration: 0.5" +
+            randoHundo +
+            's;"></div></div>';
+    }
+    $(".rain.front-row").append(drops);
+    $(".rain.back-row").append(backDrops);
+};
 
 function setCurrentTime() {
     document.getElementById("time").innerHTML = moment().format(
@@ -14,28 +63,34 @@ function setCurrentTime() {
 }
 
 function setBackground() {
-    fetch('http://cdn.cocon.live:8008/api/getRandomImg').then((response) => response.json())
-    .then((data) => {
-        console.log(data.data);
-        document.getElementById("container").style.backgroundImage = `url(${data.data})`;
-    }).catch(() => {
-        document.getElementById("container").style.backgroundImage = `url(/images/default_background.jpg)`;
-    })
+    fetch("http://cdn.cocon.live:8008/api/getRandomImg")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.data);
+            document.getElementById(
+                "container"
+            ).style.backgroundImage = `url(${data.data})`;
+        })
+        .catch(() => {
+            document.getElementById(
+                "container"
+            ).style.backgroundImage = `url(/images/default_background.jpg)`;
+        });
 }
 
 function setWeatherDom(data) {
     // document.getElementById("city").innerHTML = data.city;
     const tq = {
-        'xue': 'xue.png',
-        'lei': 'lei.png',
-        'shachen': 'shachen.png',
-        'wu': 'wu.png',
-        'bingbao': 'bingbao.png',
-        'yun': 'yun.png',
-        'yu': 'yu.png',
-        'yin': 'yin.png',
-        'qing': 'qing.png',
-    }
+        xue: "xue.png",
+        lei: "lei.png",
+        shachen: "shachen.png",
+        wu: "wu.png",
+        bingbao: "bingbao.png",
+        yun: "yun.png",
+        yu: "yu.png",
+        yin: "yin.png",
+        qing: "qing.png",
+    };
     const ds = (data && data.data.slice(0, 3)) || [];
     let dom = "";
     ds.map((item) => {
@@ -48,6 +103,14 @@ function setWeatherDom(data) {
                 <div className="da3">${item.tem2} ~ ${item.tem1} </div>
             </div>`;
     });
+    if (
+        ds[0].wea_img === "yu" ||
+        ds[0].wea_img === "xue" ||
+        ds[0].wea_img === "bingbao" ||
+        ds[0].wea_img === "lei"
+    ) {
+        makeItRain();
+    }
     document.getElementById("every-container").innerHTML = dom;
 }
 
@@ -82,10 +145,10 @@ function onSearch(e) {
     console.log(e);
 }
 
-document.getElementById('ipt').onkeydown = function(e) {
-    if(e.keyCode === 13 && e.target.value !== '') {
+document.getElementById("ipt").onkeydown = function (e) {
+    if (e.keyCode === 13 && e.target.value !== "") {
         window.location.href = `https://www.google.com/search?q=${e.target.value}`;
-        document.getElementById("ipt").value="";
+        document.getElementById("ipt").value = "";
     }
 };
 
