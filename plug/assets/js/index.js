@@ -1,11 +1,3 @@
-document.onreadystatechange = function () {
-    if (document.readyState == "complete") {
-        document.body.style.display = "block";
-    } else {
-        document.body.style.display = "none";
-    }
-};
-
 const makeItRain = function () {
     $(".rain").empty();
     var increment = 0;
@@ -66,20 +58,23 @@ function setBackground() {
     fetch("http://cdn.cocon.live:8008/api/getRandomImg")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data.data);
-            document.getElementById(
-                "container"
-            ).style.backgroundImage = `url(${data.data})`;
+            const img = new Image();
+            img.src = data.data;
+            img.onload = function () {
+                document.getElementById(
+                    "container"
+                ).style.backgroundImage = `url(${data.data})`;
+            };
+            document.body.style.display = "block";
         })
         .catch(() => {
             document.getElementById(
                 "container"
-            ).style.backgroundImage = `url(/images/default_background.jpg)`;
+            ).style.backgroundImage = `url(assets/images/default_background.jpg)`;
         });
 }
 
 function setWeatherDom(data) {
-    // document.getElementById("city").innerHTML = data.city;
     const tq = {
         xue: "xue.png",
         lei: "lei.png",

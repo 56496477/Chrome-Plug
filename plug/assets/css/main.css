@@ -6,7 +6,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  background: linear-gradient(to bottom, #202020, #111119);
+  /* background: linear-gradient(to bottom, #202020, #111119); */
 }
 
 .rain {
