@@ -50,7 +50,7 @@ const makeItRain = function () {
 
 function setCurrentTime() {
     document.getElementById("time").innerHTML = moment().format(
-        "YYYY年MM月D日 星期dd"
+        "YYYY.MM.D 周dd"
     );
 }
 
@@ -64,8 +64,8 @@ function setBackground() {
                 document.getElementById(
                     "container"
                 ).style.backgroundImage = `url(${data.data})`;
+                document.body.style.display = "block";
             };
-            document.body.style.display = "block";
         })
         .catch(() => {
             document.getElementById(

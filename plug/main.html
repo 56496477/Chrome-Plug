@@ -7,19 +7,13 @@
     <title>New Tab</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        @font-face {
-            font-family: zcoo;
-            src: url('assets/css/zcoo.ttf')
-        }
-
         body {
             margin: 0px;
             padding: 0px;
-            font-family: zcoo;
+            font-family: "Microsoft YaHei";
         }
 
         .container {
-            /* background-image: url('assets/images/bg.svg'); */
             width: 100%;
             height: 100vh;
             background-repeat: no-repeat;
@@ -31,38 +25,44 @@
         }
 
         .time {
-            font-size: 5rem;
-            color: #fff;
+            font-size: 15px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #eee;
             filter: drop-shadow(2px 4px 6px black);
         }
 
         .center {
-            margin-top: -2%;
+            margin-top: -10%;
             display: flex;
+            width: 100%;
+            justify-content: center;
             justify-content: center;
             flex-direction: column;
             align-items: center;
         }
 
         .ipt {
-            width: 110px;
-            height: 30px;
-            border: 1px solid #eee;
+            width: 580px;
+            height: 38px;
+            border: 1px solid #fff;
+            background: #fff;
             border-radius: 5px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: transparent;
+            background-image: url(assets/images/search.svg);
+            background-repeat: no-repeat;
+            background-size: 18px 18px;
+            background-position: 563px;
+            padding-left: 10px;
             z-index: 100;
-            color: #fff;
-            padding-left: 8px;
+            color: #000;
             font-size: 13px;
             transition: all 0.5s;
         }
 
         .ipt:focus {
-            border: 1px solid #eee;
-            width: 230px;
+            border: 1px solid #2d78f4;
+            /* width: 230px; */
         }
 
         .every {
@@ -104,13 +104,19 @@
             align-items: center;
         }
 
+        .center img {
+            width: 300px;
+            display: block;
+            padding-bottom: 20px;
+        }
+
         input:focus {
             outline: none;
         }
 
-        input::-webkit-input-placeholder{
-            color:#eee;
-            filter: drop-shadow(2px 4px 6px black);
+        input::-webkit-input-placeholder {
+            color: #888;
+            /* filter: drop-shadow(2px 4px 6px black); */
         }
 
         body {
@@ -121,9 +127,10 @@
 
 <body>
     <div class="container" id="container">
-        <input type="text" class="ipt" id="ipt" placeholder="Google搜索..."/>
+
         <div class="center">
-            <div class="time" id="time">10:10</div>
+            <img src="assets/images/google.svg" />
+            <input type="text" class="ipt" id="ipt" placeholder="Google搜索..." />
         </div>
         <div class="every">
             <div id="every-container">
@@ -133,10 +140,12 @@
             </div>
         </div>
     </div>
+    <div class="time" id="time">10:10</div>
+
     <body class="back-row-toggle splat-toggle">
         <div class="rain front-row"></div>
         <div class="rain back-row"></div>
-      </body>
+    </body>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/moment.min.js"></script>
     <script src="assets/js/zh-cn.js"></script>
