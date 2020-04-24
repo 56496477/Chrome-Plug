@@ -64,8 +64,8 @@ function setBackground() {
                 document.getElementById(
                     "container"
                 ).style.backgroundImage = `url(${data.data})`;
+                document.body.style.display = "block";
             };
-            document.body.style.display = "block";
         })
         .catch(() => {
             document.getElementById(
