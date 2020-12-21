@@ -54,17 +54,13 @@ function setCurrentTime() {
 
 function setBackground() {
     
-    const imageIndex = Math.floor((Math.random()*9));;
+    const imageIndex = Math.floor((Math.random()*5));;
     const urls = [
         'banner1.jpg',
         'banner2.jpg',
-        'banner3.jpg',
+        'banner3.webp',
         'banner4.jpg',
-        'banner5.jpg',
-        'banner6.jpg',
-        'banner7.webp',
-        'banner8.jpg',
-        'banner9.webp',
+        'banner5.webp',
     ]
 
     document.getElementById(
