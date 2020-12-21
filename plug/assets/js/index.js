@@ -53,23 +53,43 @@ function setCurrentTime() {
 }
 
 function setBackground() {
-    fetch("http://cdn.cocon.live:8008/api/getRandomImg")
-        .then((response) => response.json())
-        .then((data) => {
-            const img = new Image();
-            img.src = data.data;
-            img.onload = function () {
-                document.getElementById(
-                    "container"
-                ).style.backgroundImage = `url(${data.data})`;
-                document.body.style.display = "block";
-            };
-        })
-        .catch(() => {
-            document.getElementById(
-                "container"
-            ).style.backgroundImage = `url(assets/images/default_background.jpg)`;
-        });
+    
+    const imageIndex = Math.floor((Math.random()*9));;
+    const urls = [
+        'banner1.jpg',
+        'banner2.jpg',
+        'banner3.jpg',
+        'banner4.jpg',
+        'banner5.jpg',
+        'banner6.jpg',
+        'banner7.webp',
+        'banner8.jpg',
+        'banner9.webp',
+    ]
+
+    document.getElementById(
+        "container"
+    ).style.backgroundImage = `url(assets/images/${urls[imageIndex]})`;
+
+    document.body.style.display = "block";
+
+    // fetch("http://cdn.cocon.live:8008/api/getRandomImg")
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         const img = new Image();
+    //         img.src = data.data;
+    //         img.onload = function () {
+    //             document.getElementById(
+    //                 "container"
+    //             ).style.backgroundImage = `url(${data.data})`;
+    //             document.body.style.display = "block";
+    //         };
+    //     })
+    //     .catch(() => {
+    //         document.getElementById(
+    //             "container"
+    //         ).style.backgroundImage = `url(assets/images/default_background.jpg)`;
+    //     });
 }
 
 function setWeatherDom(data) {
